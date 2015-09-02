@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ClearMount", "Cache\Cache.vcxproj", "{C04AE276-20BA-4EC5-BE3C-C1FD27E00B2E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CreateCache", "CreateCache\CreateCache.vcxproj", "{AB102A36-3E89-4894-B948-4C369DECA289}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MountClear", "MountClear\MountClear.vcxproj", "{B6D1A8D0-187E-4BA4-9AEC-71F1A1ADE365}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|PS3 = Debug|PS3
+		Release|PS3 = Release|PS3
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C04AE276-20BA-4EC5-BE3C-C1FD27E00B2E}.Debug|PS3.ActiveCfg = Debug|PS3
+		{C04AE276-20BA-4EC5-BE3C-C1FD27E00B2E}.Debug|PS3.Build.0 = Debug|PS3
+		{C04AE276-20BA-4EC5-BE3C-C1FD27E00B2E}.Release|PS3.ActiveCfg = Release|PS3
+		{C04AE276-20BA-4EC5-BE3C-C1FD27E00B2E}.Release|PS3.Build.0 = Release|PS3
+		{AB102A36-3E89-4894-B948-4C369DECA289}.Debug|PS3.ActiveCfg = Debug|PS3
+		{AB102A36-3E89-4894-B948-4C369DECA289}.Debug|PS3.Build.0 = Debug|PS3
+		{AB102A36-3E89-4894-B948-4C369DECA289}.Release|PS3.ActiveCfg = Release|PS3
+		{AB102A36-3E89-4894-B948-4C369DECA289}.Release|PS3.Build.0 = Release|PS3
+		{B6D1A8D0-187E-4BA4-9AEC-71F1A1ADE365}.Debug|PS3.ActiveCfg = Debug|PS3
+		{B6D1A8D0-187E-4BA4-9AEC-71F1A1ADE365}.Debug|PS3.Build.0 = Debug|PS3
+		{B6D1A8D0-187E-4BA4-9AEC-71F1A1ADE365}.Release|PS3.ActiveCfg = Release|PS3
+		{B6D1A8D0-187E-4BA4-9AEC-71F1A1ADE365}.Release|PS3.Build.0 = Release|PS3
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
