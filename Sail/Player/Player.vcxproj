@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6F0965A7-8036-4F7A-BD2B-79E7D4813B85}</ProjectGuid>
+    <ProjectGuid>{5EA23478-A9DF-4DA3-8B79-6AD45EF79F87}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'" Label="Configuration">
@@ -33,16 +33,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
-    <OutDir>PS3_PPU_Release\</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
-    <IntDir>build\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
-    <TargetName>TEST00004 - $(ProjectName)</TargetName>
+    <TargetName>TEST00007 - $(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
     <ExtensionsToDeleteOnClean>*.obj;*.d;*.map;*.lst;*.pch;$(TargetPath);$(TargetDir)$(TargetName).self;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
+    <OutDir>PS3_PPU_Release\</OutDir>
+    <IntDir>build\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
     <OutDir>PS3_PPU_Release\</OutDir>
@@ -51,36 +47,37 @@
     <IntDir>build\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
-    <TargetName>TEST00004 - $(ProjectName)</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
+    <TargetName>TEST00007 - $(ProjectName)</TargetName>
     <ExtensionsToDeleteOnClean>*.obj;*.d;*.map;*.lst;*.pch;$(TargetPath);$(TargetDir)$(TargetName).self;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
     <ClCompile>
       <PreprocessorDefinitions>SN_TARGET_PS3;NDEBUG;__GCC__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalIncludeDirectories>$(SCE_PS3_ROOT)\target\ppu\include;$(SCE_PS3_ROOT)\target\common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <OptimizationLevel>Level0</OptimizationLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(SCE_PS3_ROOT)\target\ppu\lib\libl10n_stub.a;-lsysmodule_stub;$(SN_PS3_PATH)\ppu\lib\sn\libsn.a;$(SCE_PS3_ROOT)\target\ppu\lib\libm.a;$(SCE_PS3_ROOT)\target\ppu\lib\libio_stub.a</AdditionalDependencies>
+      <AdditionalDependencies>$(SCE_PS3_ROOT)\target\ppu\lib\libsail_stub.a;-lsysmodule_stub;$(SN_PS3_PATH)\ppu\lib\sn\libsn.a;$(SCE_PS3_ROOT)\target\ppu\lib\libm.a;$(SCE_PS3_ROOT)\target\ppu\lib\libio_stub.a</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
     <ClCompile>
       <PreprocessorDefinitions>SN_TARGET_PS3;NDEBUG;__GCC__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <OptimizationLevel>Level0</OptimizationLevel>
-      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalIncludeDirectories>$(SCE_PS3_ROOT)\target\ppu\include;$(SCE_PS3_ROOT)\target\common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(SCE_PS3_ROOT)\target\ppu\lib\libl10n_stub.a;-lsysmodule_stub;$(SN_PS3_PATH)\ppu\lib\sn\libsn.a;$(SCE_PS3_ROOT)\target\ppu\lib\libm.a;$(SCE_PS3_ROOT)\target\ppu\lib\libio_stub.a</AdditionalDependencies>
+      <AdditionalDependencies>$(SCE_PS3_ROOT)\target\ppu\lib\libsail_stub.a;-lsysmodule_stub;$(SN_PS3_PATH)\ppu\lib\sn\libsn.a;$(SCE_PS3_ROOT)\target\ppu\lib\libm.a;$(SCE_PS3_ROOT)\target\ppu\lib\libio_stub.a</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConverterIDs.cpp" />
+    <ClCompile Include="Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Condition="'$(ConfigurationType)' == 'Makefile' and Exists('$(VCTargetsPath)\Platforms\$(Platform)\SCE.Makefile.$(Platform).targets')" Project="$(VCTargetsPath)\Platforms\$(Platform)\SCE.Makefile.$(Platform).targets" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
