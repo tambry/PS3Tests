@@ -45,11 +45,11 @@ int main(void)
 	printf("Loading CELL_SYSMODULE_SAIL...\n");
 	int ret = cellSysmoduleLoadModule(CELL_SYSMODULE_SAIL);
 
-    if (ret != CELL_OK)
+	if (ret != CELL_OK)
 	{
-        printf("cellSysmoduleLoadModule(CELL_SYSMODULE_SAIL) returned: 0x%x\n", ret);
-        sys_process_exit(1);
-    }
+		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_SAIL) returned: 0x%x\n", ret);
+		sys_process_exit(1);
+	}
 
 	Player player;
 
@@ -63,7 +63,7 @@ int main(void)
 	if (ret != CELL_OK)
 	{
 		printf("cellSailMemAllocatorInitialize() returned: 0x%x\n", ret);
-        sys_process_exit(1);
+		sys_process_exit(1);
 	}
 
 	memset(&player.attribute, 0, sizeof(CellSailPlayerAttribute));
@@ -80,7 +80,7 @@ int main(void)
 	if (ret != CELL_OK)
 	{
 		printf("cellSailPlayerInitialize2() returned: 0x%x\n", ret);
-        sys_process_exit(1);
+		sys_process_exit(1);
 	}
 
 	printPlayer(&player);

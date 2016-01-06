@@ -72,11 +72,11 @@ int main(void)
 	printf("Loading CELL_SYSMODULE_L10N...\n");
 	int ret = cellSysmoduleLoadModule(CELL_SYSMODULE_L10N);
 
-    if (ret != CELL_OK)
+	if (ret != CELL_OK)
 	{
-        printf("cellSysmoduleLoadModule(CELL_SYSMODULE_L10N) returned: 0x%x\n", ret);
-        sys_process_exit(1);
-    }
+		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_L10N) returned: 0x%x\n", ret);
+		sys_process_exit(1);
+	}
 
 	L10nCode codes[] = { L10N_UTF8, L10N_UTF16, L10N_UTF32, L10N_UCS2, L10N_UCS4, L10N_ISO_8859_1, L10N_ISO_8859_2, L10N_ISO_8859_3, L10N_ISO_8859_4, L10N_ISO_8859_5, L10N_ISO_8859_6, L10N_ISO_8859_7,
 						 L10N_ISO_8859_8, L10N_ISO_8859_9, L10N_ISO_8859_10, L10N_ISO_8859_11, L10N_ISO_8859_13, L10N_ISO_8859_14, L10N_ISO_8859_15, L10N_ISO_8859_16, L10N_CODEPAGE_437, L10N_CODEPAGE_850,

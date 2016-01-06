@@ -38,12 +38,12 @@ int main(void)
 	printf("Creating 4 folders in the cache directory:\n");
 	printf("Loading CELL_SYSMODULE_FS...\n");
 
-    ret = cellSysmoduleLoadModule(CELL_SYSMODULE_FS);
-    if (ret)
+	ret = cellSysmoduleLoadModule(CELL_SYSMODULE_FS);
+	if (ret)
 	{
-        printf("cellSysmoduleLoadModule(CELL_SYSMODULE_FS) returned: 0x%x\n", ret);
-        sys_process_exit(1);
-    }
+		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_FS) returned: 0x%x\n", ret);
+		sys_process_exit(1);
+	}
 
 	printf("Creating 4 folders in %s\n", param.getCachePath);
 
