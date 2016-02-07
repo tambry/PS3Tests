@@ -11,7 +11,7 @@ typedef uint32_t u32;
 
 int main(void)
 {
-	printf("TEST00007 by tambre.\n");
+	printf("TEST00005 by tambre.\n");
 	printf("Getting different context attribute values.\n\n");
 
 	printf("Initializing.\n");

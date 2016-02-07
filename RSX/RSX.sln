@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Init", "Init\Init.vcxproj", "{91D79112-A784-41F9-BDBC-B7A89FBCD67F}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContextAttribute", "ContextAttribute\ContextAttribute.vcxproj", "{52E49D2A-8175-47A0-BCD7-FADE03CAF685}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RSXInit", "RSXInit\RSXInit.vcxproj", "{51F533A6-20DA-4280-BEAC-94AAE65BF455}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		Release|PS3 = Release|PS3
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{91D79112-A784-41F9-BDBC-B7A89FBCD67F}.Debug|PS3.ActiveCfg = Debug|PS3
-		{91D79112-A784-41F9-BDBC-B7A89FBCD67F}.Debug|PS3.Build.0 = Debug|PS3
-		{91D79112-A784-41F9-BDBC-B7A89FBCD67F}.Release|PS3.ActiveCfg = Release|PS3
-		{91D79112-A784-41F9-BDBC-B7A89FBCD67F}.Release|PS3.Build.0 = Release|PS3
 		{52E49D2A-8175-47A0-BCD7-FADE03CAF685}.Debug|PS3.ActiveCfg = Debug|PS3
 		{52E49D2A-8175-47A0-BCD7-FADE03CAF685}.Debug|PS3.Build.0 = Debug|PS3
 		{52E49D2A-8175-47A0-BCD7-FADE03CAF685}.Release|PS3.ActiveCfg = Release|PS3
 		{52E49D2A-8175-47A0-BCD7-FADE03CAF685}.Release|PS3.Build.0 = Release|PS3
+		{51F533A6-20DA-4280-BEAC-94AAE65BF455}.Debug|PS3.ActiveCfg = Debug|PS3
+		{51F533A6-20DA-4280-BEAC-94AAE65BF455}.Debug|PS3.Build.0 = Debug|PS3
+		{51F533A6-20DA-4280-BEAC-94AAE65BF455}.Release|PS3.ActiveCfg = Release|PS3
+		{51F533A6-20DA-4280-BEAC-94AAE65BF455}.Release|PS3.Build.0 = Release|PS3
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

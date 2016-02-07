@@ -1,45 +1,43 @@
-#include <stdio.h>
 #include <string.h>
 #include <sys/process.h>
 #include <cell/sysmodule.h>
 #include <cell/cell_fs.h>
 #include <sysutil/sysutil_syscache.h>
 
-typedef int32_t s32;
-
 int main(void)
 {
 	printf("TEST00002 by tambre.\n");
 	printf("Mounting cache and creating several folders.\n\n");
-
 	printf("Mounting system cache:\n");
+
 	CellSysCacheParam param;
 	strcpy(param.cacheId, "TEST00002");
 	param.reserved = NULL;
 
-	s32 ret = cellSysCacheMount(&param);
+	int32_t ret = cellSysCacheMount(&param);
 
 	if (ret < 0)
 	{
-		printf("cellSysCacheMount() returned error code: 0x%x\n", ret);
+		printf("cellSysCacheMount() error code: 0x%x\n", ret);
 		sys_process_exit(1);
 	}
 	else if (ret == CELL_SYSCACHE_RET_OK_CLEARED)
 	{
-		printf("cellSysCacheMount() returned: CELL_SYSCACHE_RET_OK_CLEARED.\n");
-		printf("getCachePath: %s\n\n", param.getCachePath);
+		printf("cellSysCacheMount(): CELL_SYSCACHE_RET_OK_CLEARED.\n");
 	}
 	else if (ret == CELL_SYSCACHE_RET_OK_RELAYED)
 	{
-		printf("cellSysCacheMount() returned: CELL_SYSCACHE_RET_OK_RELAYED.\n");
-		printf("getCachePath: %s\n\n", param.getCachePath);
+		printf("cellSysCacheMount(): CELL_SYSCACHE_RET_OK_RELAYED.\n");
 	}
+
+	printf("getCachePath: %s\n\n", param.getCachePath);
 
 	printf("Creating 4 folders in the cache directory:\n");
 	printf("Loading CELL_SYSMODULE_FS...\n");
 
 	ret = cellSysmoduleLoadModule(CELL_SYSMODULE_FS);
-	if (ret)
+
+	if (ret < 0)
 	{
 		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_FS) returned: 0x%x\n", ret);
 		sys_process_exit(1);
@@ -83,5 +81,5 @@ int main(void)
 		sys_process_exit(1);
 	}
 
-	return(0);
+	return 0;
 }

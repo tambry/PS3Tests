@@ -13,7 +13,6 @@ int main(void)
 	printf("TEST00006 by tambre.\n");
 	printf("Initializing GCM.\n\n");
 
-	printf("Initializing.\n");
 	void* host_addr = memalign(1024 * 1024, HOST_SIZE);
 	printf("host_addr: 0x%x\n", host_addr);
 
@@ -21,7 +20,7 @@ int main(void)
 
 	if (ret != CELL_OK)
 	{
-		printf("cellGcmInit() failed (0x%x)\n", ret);
+		printf("cellGcmInit() error code: 0x%x)\n", ret);
 		sys_process_exit(1);
 	}
 	else

@@ -74,7 +74,7 @@ int main(void)
 
 	if (ret != CELL_OK)
 	{
-		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_L10N) returned: 0x%x\n", ret);
+		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_L10N) error code: 0x%x\n", ret);
 		sys_process_exit(1);
 	}
 

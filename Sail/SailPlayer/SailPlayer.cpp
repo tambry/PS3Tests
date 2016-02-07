@@ -1,10 +1,9 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/process.h>
 #include <cell/sysmodule.h>
 #include <cell/sail.h>
-#include "Player.h"
+#include "SailPlayer.h"
 
 void printPlayer(Player* pSelf)
 {
@@ -12,7 +11,7 @@ void printPlayer(Player* pSelf)
 
 	for (int i = 0; i < sizeof(CellSailPlayer); i++)
 	{
-		printf("[%X]: %x", i, *player++);
+		printf("[%X]: 0x%x\n", i, *((unsigned char*)player + i));
 	}
 }
 
@@ -40,20 +39,21 @@ void callback(void* pSelf, CellSailEvent event, uint64_t arg, uint64_t arg1)
 int main(void)
 {
 	printf("TEST00007 by tambre.\n");
-	printf("Test for checking LLE-level accuracy of the cellSail module.\n\n");
+	printf("Test for checking memory structure of the CellSailPlayer structure.\n\n");
 
 	printf("Loading CELL_SYSMODULE_SAIL...\n");
 	int ret = cellSysmoduleLoadModule(CELL_SYSMODULE_SAIL);
 
 	if (ret != CELL_OK)
 	{
-		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_SAIL) returned: 0x%x\n", ret);
+		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_SAIL) error: 0x%x\n", ret);
 		sys_process_exit(1);
 	}
 
 	Player player;
 
-	CellSailMemAllocatorFuncs memFuncs = {
+	CellSailMemAllocatorFuncs memFuncs =
+	{
 		(CellSailMemAllocatorFuncAlloc)memAlloc,
 		(CellSailMemAllocatorFuncFree) memFree,
 	};
@@ -66,6 +66,7 @@ int main(void)
 		sys_process_exit(1);
 	}
 
+	memset(&player, 0, sizeof(CellSailPlayer));
 	memset(&player.attribute, 0, sizeof(CellSailPlayerAttribute));
 	player.attribute.playerPreset = CELL_SAIL_PLAYER_PRESET_AV_SYNC_AUTO_DETECT;
 	player.attribute.maxAudioStreamNum = 2;
@@ -84,6 +85,16 @@ int main(void)
 	}
 
 	printPlayer(&player);
+
+	ret = cellSailPlayerSetParameter(&player.player, CELL_SAIL_PARAMETER_SPURS_NUM_OF_SPUS, 400, 0);
+
+	if (ret != CELL_OK)
+	{
+		printf("cellSailPlayerSetParameter() returned: 0x%x\n", ret);
+		sys_process_exit(1);
+	}
+
+	//printPlayer(&player);
 
 	return 0;
 }
