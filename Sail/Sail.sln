@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SailPlayer", "SailPlayer\SailPlayer.vcxproj", "{850A42F7-4A83-46AE-B5E4-4050C2DE1E2B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SailCheck", "SailCheck\SailCheck.vcxproj", "{F3BD0C6D-6D43-4970-A676-B6B3BC69A613}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|PS3 = Release|PS3
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{850A42F7-4A83-46AE-B5E4-4050C2DE1E2B}.Debug|PS3.ActiveCfg = Debug|PS3
-		{850A42F7-4A83-46AE-B5E4-4050C2DE1E2B}.Debug|PS3.Build.0 = Debug|PS3
-		{850A42F7-4A83-46AE-B5E4-4050C2DE1E2B}.Release|PS3.ActiveCfg = Release|PS3
-		{850A42F7-4A83-46AE-B5E4-4050C2DE1E2B}.Release|PS3.Build.0 = Release|PS3
+		{F3BD0C6D-6D43-4970-A676-B6B3BC69A613}.Debug|PS3.ActiveCfg = Debug|PS3
+		{F3BD0C6D-6D43-4970-A676-B6B3BC69A613}.Debug|PS3.Build.0 = Debug|PS3
+		{F3BD0C6D-6D43-4970-A676-B6B3BC69A613}.Release|PS3.ActiveCfg = Release|PS3
+		{F3BD0C6D-6D43-4970-A676-B6B3BC69A613}.Release|PS3.Build.0 = Release|PS3
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

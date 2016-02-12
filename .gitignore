@@ -54,6 +54,7 @@ dlldata.c
 *.sbr
 *.tlb
 *.tli
+*.tlog
 *.tlh
 *.tmp
 *.tmp_proj
@@ -234,3 +235,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Our files
+PS3_Debug
