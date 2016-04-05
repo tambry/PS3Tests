@@ -6,6 +6,9 @@
 
 int main(void)
 {
+	// Disable printf buffering
+	setbuf(stdout, NULL);
+
 	printf("TEST00002 by tambre.\n");
 	printf("Mounting cache and creating several folders.\n\n");
 	printf("Mounting system cache:\n");

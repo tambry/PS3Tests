@@ -56,7 +56,7 @@
     <Link>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(SN_PS3_PATH)\ppu\lib\sn\libsn.a;-lfs_stub;-lsysmodule_stub;$(SCE_PS3_ROOT)\target\ppu\lib\libm.a;$(SCE_PS3_ROOT)\target\ppu\lib\libio_stub.a;$(SCE_PS3_ROOT)\target\ppu\lib\libsysutil_stub.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>-lfs_stub;-lsysmodule_stub;-lsysutil_stub;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -5,3 +5,4 @@ TEST00004 - ConverterIDs
 TEST00005 - ContextAttribute
 TEST00006 - RSXInit
 TEST00007 - SailCheck
+TEST00008 - TextureFormats

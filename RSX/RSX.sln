@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContextAttribute", "Context
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RSXInit", "RSXInit\RSXInit.vcxproj", "{51F533A6-20DA-4280-BEAC-94AAE65BF455}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextureFormats", "TextureFormats\TextureFormats.vcxproj", "{837DA5E3-864A-4C91-A97F-F1A8030217E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|PS3 = Debug|PS3
@@ -19,6 +21,10 @@ Global
 		{51F533A6-20DA-4280-BEAC-94AAE65BF455}.Debug|PS3.Build.0 = Debug|PS3
 		{51F533A6-20DA-4280-BEAC-94AAE65BF455}.Release|PS3.ActiveCfg = Release|PS3
 		{51F533A6-20DA-4280-BEAC-94AAE65BF455}.Release|PS3.Build.0 = Release|PS3
+		{837DA5E3-864A-4C91-A97F-F1A8030217E2}.Debug|PS3.ActiveCfg = Debug|PS3
+		{837DA5E3-864A-4C91-A97F-F1A8030217E2}.Debug|PS3.Build.0 = Debug|PS3
+		{837DA5E3-864A-4C91-A97F-F1A8030217E2}.Release|PS3.ActiveCfg = Release|PS3
+		{837DA5E3-864A-4C91-A97F-F1A8030217E2}.Release|PS3.Build.0 = Release|PS3
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

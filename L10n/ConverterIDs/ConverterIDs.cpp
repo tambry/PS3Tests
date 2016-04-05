@@ -65,6 +65,9 @@ inline static const char* CodeToName(int code)
 
 int main(void)
 {
+	// Disable printf buffering
+	setbuf(stdout, NULL);
+
 	printf("TEST00004 by tambre.\n");
 	printf("Generating all the possible converter IDs.\n");
 	printf("Firmware 3.10+ required.\n\n");

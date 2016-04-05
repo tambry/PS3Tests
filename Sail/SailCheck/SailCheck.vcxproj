@@ -52,7 +52,7 @@
       <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(SCE_PS3_ROOT)\target\ppu\lib\libsail_stub.a;-lsysmodule_stub;$(SN_PS3_PATH)\ppu\lib\sn\libsn.a;$(SCE_PS3_ROOT)\target\ppu\lib\libm.a;$(SCE_PS3_ROOT)\target\ppu\lib\libio_stub.a</AdditionalDependencies>
+      <AdditionalDependencies>-lsail_stub;-lsysmodule_stub</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

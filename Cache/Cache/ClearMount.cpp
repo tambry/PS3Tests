@@ -5,6 +5,9 @@
 
 int main(void)
 {
+	// Disable printf buffering
+	setbuf(stdout, NULL);
+
 	printf("TEST00001 by tambre.\n");
 	printf("Removing cache before mounting and then mounting the cache.\n\n");
 
