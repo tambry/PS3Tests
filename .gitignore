@@ -23,6 +23,10 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+*.o
+*.vpo
+*.fpo
+*.VC.*
 
 # Roslyn cache directories
 *.ide/

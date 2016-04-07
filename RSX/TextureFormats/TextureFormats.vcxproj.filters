@@ -11,4 +11,12 @@
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="fp_shader.cg">
+      <Filter>Source</Filter>
+    </CustomBuild>
+    <CustomBuild Include="vp_shader.cg">
+      <Filter>Source</Filter>
+    </CustomBuild>
+  </ItemGroup>
 </Project>

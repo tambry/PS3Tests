@@ -6,7 +6,9 @@
 #include <cell/codec.h>
 #include <cell/gcm.h>
 
+#include "cellutil.h"
 #include "gcmutil.h"
+#include "padutil.h"
 
 SYS_PROCESS_PARAM(1001, 0x10000);
 

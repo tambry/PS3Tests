@@ -61,13 +61,41 @@
     <ClCompile>
       <PreprocessorDefinitions>SN_TARGET_PS3;NDEBUG;__GCC__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <OptimizationLevel>Level2</OptimizationLevel>
-      <AdditionalIncludeDirectories>$(SCE_PS3_ROOT)/samples/common/gcmutil/;$(SCE_PS3_ROOT)\target\ppu\include;$(SCE_PS3_ROOT)\target\common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SCE_PS3_ROOT)/samples/common/padutil/;$(SCE_PS3_ROOT)/samples/common/gcmutil/;$(SCE_PS3_ROOT)\target\ppu\include;$(SCE_PS3_ROOT)\target\common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>-lsysutil_stub;-lgcm_cmd;-lgcm_sys_stub;-lsysmodule_stub;$(SCE_PS3_ROOT)\samples\common\gcmutil\gcmutil.a;$(SCE_PS3_ROOT)\samples\sdk\graphics\gcm\cube\vp_shader.ppu.o;$(SCE_PS3_ROOT)\samples\sdk\graphics\gcm\cube\fp_shader.ppu.o</AdditionalDependencies>
+      <AdditionalDependencies>-lsysutil_stub;-lgcm_cmd;-lgcm_sys_stub;-lsysmodule_stub;$(SCE_PS3_ROOT)\samples\common\gcmutil\gcmutil.a;$(SCE_PS3_ROOT)\samples\common\padutil\padutil.a</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="fp_shader.cg">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
+	  $(SCE_PS3_ROOT)\host-win32\Cg\bin\sce-cgc -quiet -profile sce_fp_rsx -fastmath -fastprecision -o "%(Filename).fpo" "%(FullPath)"
+	  $(SCE_PS3_ROOT)\host-win32\ppu\bin\ppu-lv2-objcopy  -I binary -O elf64-powerpc-celloslv2 -B powerpc "%(Filename).fpo" "%(Filename).ppu.o"
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
+	  $(SCE_PS3_ROOT)\host-win32\Cg\bin\sce-cgc -quiet -profile sce_fp_rsx -fastmath -fastprecision -o "%(Filename).fpo" "%(FullPath)"
+	  $(SCE_PS3_ROOT)\host-win32\ppu\bin\ppu-lv2-objcopy  -I binary -O elf64-powerpc-celloslv2 -B powerpc "%(Filename).fpo" "%(Filename).ppu.o"
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">%(Filename).fpo;%(Filename).ppu.o;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">%(Filename).fpo;%(Filename).ppu.o;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="vp_shader.cg">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">
+	  $(SCE_PS3_ROOT)\host-win32\Cg\bin\sce-cgc -quiet -profile sce_vp_rsx -fastmath -fastprecision -o "%(Filename).vpo" "%(FullPath)"
+	  $(SCE_PS3_ROOT)\host-win32\ppu\bin\ppu-lv2-objcopy  -I binary -O elf64-powerpc-celloslv2 -B powerpc "%(Filename).vpo" "%(Filename).ppu.o"
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|PS3'">%(Filename).vpo;%(Filename).ppu.o;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">
+	  $(SCE_PS3_ROOT)\host-win32\Cg\bin\sce-cgc -quiet -profile sce_vp_rsx -fastmath -fastprecision -o "%(Filename).vpo" "%(FullPath)"
+	  $(SCE_PS3_ROOT)\host-win32\ppu\bin\ppu-lv2-objcopy  -I binary -O elf64-powerpc-celloslv2 -B powerpc "%(Filename).vpo" "%(Filename).ppu.o"
+      </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|PS3'">%(Filename).vpo;%(Filename).ppu.o;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureFormats.cpp" />
   </ItemGroup>
