@@ -3,7 +3,7 @@
 #include <sys/process.h>
 #include <sysutil/sysutil_syscache.h>
 
-int main(void)
+int32_t main()
 {
 	// Disable printf buffering
 	setbuf(stdout, NULL);

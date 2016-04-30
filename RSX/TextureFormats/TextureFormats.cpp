@@ -540,7 +540,7 @@ static void flip(void)
     cellGcmSetWaitFlip();
 }
 
-int main(void)
+int32_t main()
 {
 	// Disable printf buffering
 	setbuf(stdout, NULL);

@@ -1,14 +1,13 @@
-#include <inttypes.h>
+#include "SailCheck.h"
+
 #include <stdlib.h>
 #include <string.h>
 #include <sys/process.h>
-#include <cell/sail.h>
 #include <cell/sysmodule.h>
-#include "SailCheck.h"
 
 void printStruct(void* player, uint32_t size)
 {
-	for (int i = 0; i < size; i++)
+	for (uint32_t i = 0; i < size; i++)
 	{
 		printf("[%X]: 0x%x\n", i, *((uint8_t*)player + i));
 	}
@@ -17,13 +16,13 @@ void printStruct(void* player, uint32_t size)
 void* memAlloc(Player* pSelf, size_t boundary, size_t size)
 {
 	void* memory = memalign(boundary, size);
-	printf("memAlloc(0x%x, %d, 0x%X)\n", memory, boundary, size);
+	printf("memAlloc(0x%p, %d, 0x%X)\n", memory, boundary, size);
 	return memory;
 }
 
 void memFree(Player* pSelf, size_t boundary, void* memory)
 {
-	printf("memFree(0x%x, %d)\n", memory, boundary);
+	printf("memFree(0x%p, %d)\n", memory, boundary);
 	free(memory);
 }
 
@@ -44,7 +43,7 @@ void setParameter(CellSailPlayer* player, int32_t parameter, uint64_t param0, ui
 
 	if (ret != CELL_OK)
 	{
-		printf("cellSailPlayerSetParameter() error: 0x%\n", ret);
+		printf("cellSailPlayerSetParameter() error: 0x%x\n", ret);
 		sys_process_exit(1);
 	}
 }
@@ -101,7 +100,7 @@ void callback(void* pArg, CellSailEvent evnt, uint64_t arg, uint64_t arg1)
 		if (arg1 != 0xB00B)
 		{
 			printf("Incorrect callback user-defined parameter.\n");
-			printf("Value: 0x%X\n", arg1);
+			printf("Value: 0x%llX\n", arg1);
 			printf("Expected: 0xB00B\n");
 			sys_process_exit(1);
 		}
@@ -152,7 +151,7 @@ void testParameters(Player* player)
 	test32(&player->player, 0x398, 0x4);    // CELL_SAIL_PARAMETER_SPURS_NUM_OF_SPUS
 	test32(&player->player, 0x39C, 0x64);   // CELL_SAIL_PARAMETER_SPURS_SPU_THREAD_PRIORITY
 	test32(&player->player, 0x3A0, 0x12C);  // CELL_SAIL_PARAMETER_SPURS_PPU_THREAD_PRIORITY
-	test8(&player->player, 0x3A4, true);    // CELL_SAIL_PARAMETER_SPURS_EXIT_IF_NO_WORK
+	test8( &player->player, 0x3A4, true);   // CELL_SAIL_PARAMETER_SPURS_EXIT_IF_NO_WORK
 	test32(&player->player, 0x3A8, 0x0);    // CELL_SAIL_PARAMETER_IO_PPU_THREAD_PRIORITY (Set to 0 at first)
 	test32(&player->player, 0x3AC, 0x0);    // CELL_SAIL_PARAMETER_IO_PPU_THREAD_STACK_SIZE (Set to 0 at first)
 	test32(&player->player, 0x360, 0x2BC);  // CELL_SAIL_PARAMETER_DMUX_PPU_THREAD_PRIORITY
@@ -193,7 +192,7 @@ void testParameters(Player* player)
 	}
 }
 
-int main(void)
+int32_t main()
 {
 	// Disable printf buffering
 	setbuf(stdout, NULL);
@@ -239,9 +238,9 @@ int main(void)
 		sys_process_exit(1);
 	}
 
-	printf("Testing");
+	printf("Testing\n");
 	testParameters(&player);
-	printf("Testing2");
+	printf("Testing done\n");
 
 	ret = cellSailPlayerInitialize2(&player.player, &player.allocator, &callback, &player, &player.attribute, &player.resource);
 

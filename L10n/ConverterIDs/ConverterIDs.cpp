@@ -60,10 +60,11 @@ inline static const char* CodeToName(int code)
 	case L10N_CODEPAGE_865: return "L10N_CODEPAGE_865";
 	case L10N_CODEPAGE_869: return "L10N_CODEPAGE_869";
 	case _L10N_CODE_: return "_L10N_CODE_";
+	default: return "UNKNOWN";
 	}
 }
 
-int main(void)
+int32_t main()
 {
 	// Disable printf buffering
 	setbuf(stdout, NULL);
@@ -73,11 +74,11 @@ int main(void)
 	printf("Firmware 3.10+ required.\n\n");
 
 	printf("Loading CELL_SYSMODULE_L10N...\n");
-	int ret = cellSysmoduleLoadModule(CELL_SYSMODULE_L10N);
+	int32_t ret = cellSysmoduleLoadModule(CELL_SYSMODULE_L10N);
 
 	if (ret != CELL_OK)
 	{
-		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_L10N) error code: 0x%x\n", ret);
+		printf("cellSysmoduleLoadModule(CELL_SYSMODULE_L10N) failed: 0x%x\n", ret);
 		sys_process_exit(1);
 	}
 
@@ -87,7 +88,7 @@ int main(void)
 						 L10N_EUC_KR, L10N_ISO_2022_JP, L10N_ARIB, L10N_HZ, L10N_GB18030, L10N_RIS_506, L10N_CODEPAGE_852, L10N_CODEPAGE_1250, L10N_CODEPAGE_737, L10N_CODEPAGE_1253, L10N_CODEPAGE_857,
 						 L10N_CODEPAGE_1254, L10N_CODEPAGE_775, L10N_CODEPAGE_1257, L10N_CODEPAGE_855, L10N_CODEPAGE_858, L10N_CODEPAGE_860, L10N_CODEPAGE_861, L10N_CODEPAGE_865, L10N_CODEPAGE_869, _L10N_CODE_ };
 
-	int codesLength = sizeof(codes) / sizeof(*codes);
+	int32_t codesLength = sizeof(codes) / sizeof(*codes);
 	printf("Amount of IDs: %d\n\n", codesLength);
 	printf("Generating:\n");
 
